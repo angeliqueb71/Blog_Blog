@@ -1,0 +1,21 @@
+<h1>Comments#new</h1>
+<p>Find me in app/views/comments/new.html.erb</p>
+
+
+<h1><%= @post.content %></h1>
+<center><%= form_for @comment, url: post_comments_path, method: :post do |form| %>
+<br>
+<%= form.text_area :content, cols: 40, rows: 10, placeholder: "Write a comment..." %>
+
+<br>
+<br>
+
+<%= form.submit ("Post") %>
+</center>
+<br>
+<% @post.comments.each do |comment|%>
+<br>
+<h4><%= User.find(comment.user_id).username %> said: <%= comment.content %></h4>
+<%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+<% end %>
+<% end %>

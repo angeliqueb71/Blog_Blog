@@ -1,0 +1,13 @@
+<!-- <h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p> -->
+
+<%= form_for User.new do |u| %>
+
+
+<p><%= u.text_field :fname, placeholder: "First Name", class: "field", required: true %></p><br>
+<p><%= u.text_field :lname, placeholder: "Last Name", class: "field", required: true %></p><br>
+<p><%= u.email_field :email, placeholder: "EMAIL", class: "field", required: true  %></p><br>
+<p><%= u.password_field :password, placeholder: "PASSWORD", class: "field", required: true %></p><br>
+<p><%= u.submit value: "SUBMIT", class: "button" %><br>
+ <% link_to new_post_path %></p>
+<% end %>

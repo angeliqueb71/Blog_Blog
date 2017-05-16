@@ -1,0 +1,27 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+<div id="form-div3">
+  <%= form_for @user do |form| %>
+    <%= form.label :fname, ("Edit First Name") %>
+    <%= form.text_field :fname %>
+    <br>
+    <br>
+    <%= form.label :lname, ("Edit Last Name") %>
+    <%= form.text_field :lname %>
+    <br>
+    <br>
+    <%= form.label :Email, ("Edit Email") %>
+    <%= form.text_field :email %>
+    <br>
+    <br>
+    <%= form.label :password, ("Edit Password") %>
+    <%= form.password_field :password %>
+    <br>
+    <br>
+    <%= form.submit %>
+    <br>
+    <br>
+    <%=link_to("Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"})%>
+  <% end %>
+</div>

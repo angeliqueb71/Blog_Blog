@@ -1,0 +1,11 @@
+<!-- <h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p> -->
+
+<div id="profile_name" class="focus-in-expand">
+
+<%= @user.fname %> <%= @user.lname%></div><br>
+<p><strong>Email: </strong><%= @user.email%></p>
+<p><strong>User ID: </strong><%= @user.id %></p>
+
+
+<%= link_to "Cancel Account", user_path(@user), method: :delete %>

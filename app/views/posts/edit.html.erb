@@ -1,0 +1,11 @@
+<%= form_for @post do |form| %>
+  <center><%= form.label :title, ("Edit Title") %></center>
+  <center><%= form.text_field :title %></center>
+  <br>
+  <br>
+  <center><%= form.label :content,("Edit Content") %></center>
+  <center><%= form.text_area :content, cols: 50, rows: 15 %></center>
+  <br>
+  <br>
+  <center><%= form.submit "enter" %></center>
+<% end %>

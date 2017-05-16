@@ -1,0 +1,12 @@
+<h1>Posts#show</h1>
+
+
+<h2><%= @post.title %></h2>
+<%= @post.content %>
+<br>
+<% @post.comments.each do |c|%>
+  <br>
+  <div>
+    <%= User.find(c.user_id).username %> said: <%= c.content%>
+  </div>
+<% end %>

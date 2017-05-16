@@ -1,0 +1,20 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+
+<%= link_to "Create User" ,"users/new", class:"body_link" %>
+
+<div class="container">
+  <h1 class="text-center">Users</h1>
+  <div id="users_list">
+
+
+    <% @user.each do |u| %>
+    <%  if u.fname %>
+    <%= link_to "#{u.fname} #{u.lname}", user_path(u), class: "body_link" %>
+    <% else %>
+    <%= link_to "Unknown", user_path(u) %>
+    <% end %>
+    <br>
+    <% end %>
+  </div>
+</div>

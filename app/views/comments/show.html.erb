@@ -1,0 +1,20 @@
+<h1>Comments#show</h1>
+<p>Find me in app/views/comments/show.html.erb</p>
+
+<%= @post.content%>
+
+<%= form_for @comment, url: post_comments_path, method: :post do |form| %>
+  <br>
+  <%= form.text_area :content, placeholder: "Write a comment..." %>
+
+  <br>
+  <br>
+  <br>
+
+<ul>
+  <% post.comments.each do |comment| %>
+    <li><%= comment.content %></li>
+  <%end%>
+</ul>
+<br>
+</li>

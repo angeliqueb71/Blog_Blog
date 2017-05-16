@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogBlog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
+  </head>
+
+  <body>
+
+    <nav>
+      <%= image_tag "blog_blog1.png" %>
+      <div id="main_content">
+       <div id="header">
+        <% if session[:user_id] %> |
+        <%= link_to "Feed", posts_path %> |
+        <%= link_to "Create a Post", new_post_path %> |
+        <%= link_to "Edit Profile", edit_user_path(session[:user_id]) %> |
+
+
+        <%= link_to "Sign Out", session_path(session[:user_id]), method: :delete %> |
+
+        <% else %>
+        <%= link_to "Sign Up", new_user_path %> |
+        <%= link_to "Blogin", new_session_path %> |
+        <% end %>
+      </div>
+    </div>
+      </nav>
+
+         <div id="main_content">
+          <div id="header">
+           <p>Bloger Bloger</p>
+            <div class="buttons">
+              <!-- <!- click on button to create a new post -->
+
+           </div>
+         </div>
+
+    <div id="main" class="container">
+      <div class="flashNotice">
+        <% if flash[:notice] %>
+        <%= flash[:notice] %>
+        <% end %>
+      </div>
+      <div class="flashAlert">
+        <% if flash[:alert] %>
+        <%= flash[:alert] %>
+        <% end %>
+      </div>
+    <%= yield %>
+    </div>
+  </body>
+</html>
