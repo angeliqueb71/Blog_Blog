@@ -5,24 +5,30 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new(post_id: params[:post_id], user_id: session[:user_id])
+    @comment = Comment.new
     @post = Post.new
   end
 
-  def create
-    user = User.find(session[:user_id])
+  # def create
+  #   user = User.find(session[:user_id])
+  #
+  #   @post = Post.find(params[:post_id])
+  #   @comment = @post.comments.create(comment_params)
+  #   puts @post
+  #   if @comment.save
+  #     flash[:notice] = "Comment successfully added"
+  #     post.comments < @comment
+  #     redirect_to post_path(@post)
+  #   else
+  #     flash[:alert] = "Error posting comment"
+  #     redirect_to post_path(@post)
+  #   end
+  # end
 
+  def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    puts @post
-    if @comment.save
-      flash[:notice] = "Comment successfully added"
-      user.comments < @comment
-      redirect_to post_path(@post)
-    else
-      flash[:alert] = "Error posting comment"
-      redirect_to post_path(@post)
-    end
+    redirect_to post_path(@post)
   end
 
   def destroy
